@@ -64,7 +64,7 @@ From an implementation perspective, this makes it extremely easy to understand h
 
 In `r-nn`, I created a function to explicitly map the index to the 1-dimensional representation each time an indexing operation occurs for clarity purposes. You might however think that computing this mapping each time we want to access an element creates unnecessary overhead, and you would be right! PyTorch maintains this mapping using a `stride` attribute which is updated each time the shape of the Tensor changes. 
 
-![Transpose Example](images/transpose.png)
+![Transpose Example](images/Transpose.png)
 
 The above example illustrates how stride allows for efficient indexing into the data. The $i^{th}$ item of stride corresponds to how many spaces along the array we need to move to get the next element of dimension $i$. When `.transpose()` is invoked, all PyTorch needs to do is to update the stride. We see that while the view of the Tensor returned to us is different, there is no change in the underlying data. To drive home this point, think about why the following piece of code will not work.
 
