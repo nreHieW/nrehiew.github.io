@@ -1,0 +1,13 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+    {{ partialCached "head/css.html" . }}
+    {{ partialCached "head/js.html" . }}
+    {{ $style := resources.Get "style.css" }}    
+    <link rel="stylesheet" href="{{ $style.Permalink }}"> 
+
+    {{ if .Param "math" }}
+    {{ partialCached "math.html" . }}
+    {{ end }}
+</head>

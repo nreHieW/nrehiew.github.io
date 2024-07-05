@@ -1,0 +1,19 @@
+<div>
+    <h1 class="text-3xl font-semibold border-b-2 py-3 title">Writing</h1>
+
+    <ul>
+        {{ range ( where .Site.RegularPages "Type" "blog" ) }}
+        <li class="py-2">
+            <a class="flex flex-col hover:opacity-75 hover:underline" href="{{ .Permalink }}">
+                <div class="flex flex-row justify-between ">
+                    <div class="font-semibold">{{ .Title }} </div>
+                    <div class="italic text-sm">{{ .Date.Format "Jan 2 2006"}} </div>
+                </div>
+                <div class="text-sm italic pt-1">{{ .Params.Subtitle }} </div>
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+
+
+</div>

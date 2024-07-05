@@ -1,0 +1,20 @@
+baseURL = ''
+languageCode = 'en-us'
+title = "wh"
+theme = 'blog-theme'
+
+[params]
+  defaultTheme='light'
+  math = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)'], ['$', '$']]
+
+[markup.goldmark.renderer] 
+unsafe = true

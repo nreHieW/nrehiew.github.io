@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap");
+
+body {
+  /* font-family: "Inter", sans-serif; */
+  /* font-family: "Merriweather", serif; */
+  font-family: "Montserrat", sans-serif;
+}
+
+.title {
+  font-family: "Roboto Slab", serif;
+}
+
+
+h1 {
+  font-size: 2.4rem;
+  font-family: "Roboto Slab", serif;
+  font-weight: 550;
+  margin-bottom: 0.375rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  /* font-family: "Roboto Slab", serif; */
+  margin-top: 2rem;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  font-family: "Roboto Slab", serif;
+}
+
+h3 {
+  font-size: 1.04rem;
+  /* font-family: "Roboto Slab", serif; */
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
+h3 em {
+  font-size: 0.95rem;
+}
+
+p {
+  /* margin-bottom: 1.5rem; */
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+pre {
+  background-color: #272a36 !important;
+  padding: 1rem !important;
+  border-radius: 0.5rem !important;
+  font-size: 0.85rem !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  border-left: 0.25rem solid #e11d47 !important;
+}
+/* 
+.dark .highlight pre {
+  background-color: red !important;
+} */
+
+sup a{
+  font-size: 0.75rem;
+  text-decoration: underline;
+  color: #5BC0BE;
+  font-weight: 700
+}
+
+.dark p code {
+  background-color: #2B2E3B !important;
+}
+
+p code {
+  padding: 0.15rem !important;
+  border-radius: 0.25rem !important;
+  font-size: 0.9rem !important;
+  background-color: #DCDEE5 !important;
+}
+
+pre {
+  white-space: pre-wrap;       /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+sup {
+  font-size: 0.2rem;
+  vertical-align: 0.5rem;
+}
+
+
+ol {
+  list-style-type: decimal;
+  padding-left: 2rem;
+}
+
+img {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+p em {
+  display: inline-block;
+  border-left: 0.22rem solid #e11d47 !important;
+  margin: 0 0 1rem;
+  padding-left: 1rem; /* Padding to apply space between the border and the text */
+  box-sizing: border-box; /* Ensure the padding and border are included in the element's width and height */
+  opacity: 0.6;
+}
+
+p em::before {
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  width: 0.25rem;
+  background-color: #e11d47;
+}
+
+p a {
+  text-decoration: underline;
+}
+
+p a:hover {
+  color: #5BC0BE;
+  opacity: 0.8;
+}

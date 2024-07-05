@@ -1,0 +1,15 @@
+{{ define "main" }}
+
+<div class="">
+    <!-- 👋  -->
+    <p class="text-6xl title">Hi,</p>
+    I'm a software engineer passionate about building and designing beautiful products that push the boundaries of
+    technology. My current focus is on Machine Learning, where I'm dedicated to helping artificial intelligence systems
+    evolve and adapt. Previously, I did Computer Vision research and helped a large bank build several AI
+    products. Beyond AI, I also do a bit of web development and <a href="https://twitter.com/nrehiew"
+        class="hover:opacity-50 underline">Sports Analytics</a>.
+</div>
+<div class="pt-20">
+    {{ partial "posts_list.html" . }}
+</div>
+{{ end }}

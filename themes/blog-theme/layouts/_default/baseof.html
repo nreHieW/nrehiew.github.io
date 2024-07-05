@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ or site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head>
+  {{ partial "head.html" . }}
+  {{ if .Param "math" }}
+    {{ partialCached "math.html" . }}
+  {{ end }}
+  <script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+</head>
+<body class="flex flex-col items-center bg-zinc-100 dark:bg-neutral-900 text-black dark:text-zinc-200 text-justify">
+  <div class="sm:max-w-3xl px-4 w-4/5">
+    {{ partial "header.html" . }}
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer class="border-t-2 text-xs pt-4 mt-16">
+    {{ partial "footer.html" . }}
+  </footer>
+  </div>
+</body>
+</html>
