@@ -2,6 +2,7 @@ baseURL = ''
 languageCode = 'en-us'
 title = "wh"
 theme = 'blog-theme'
+googleAnalytics = "G-PCNGEYW1TG"
 
 [params]
   defaultTheme='light'
@@ -18,3 +19,4 @@ theme = 'blog-theme'
 
 [markup.goldmark.renderer] 
 unsafe = true
+
