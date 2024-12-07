@@ -47,7 +47,7 @@ loss.backward()
 $$\frac{dx_t}{dt} = -x_0 + x_1 = x_1 - x_0$$ Thus, $\frac{dx_t}{dt}$​​ is equivalent to the direction of movement from $x_0$​ (source) to $x_1$​ (target)*
 
 ### Sampling
-To sample from $p_{target}$, we start from a source point sampled from $p_{source}$ and iteratively move in the predicted direction. For a trajectory with `NUM_STEPS`, we scale the prediction each iteration:
+Typically $p_{source}$ is a distribution we can sample easily from (eg. Gaussian) while we cannot do the same for the more complex $p_{target}$. We usually only have data samples from $p_{target}$ which we use for training. To sample from $p_{target}$, we need to start from a source point sampled from $p_{source}$ and iteratively move in the predicted direction. For a trajectory with `NUM_STEPS`, we scale the prediction each iteration:
 
 ```python
 source = torch.randn(1) # or any other source distribution
