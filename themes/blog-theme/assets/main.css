@@ -32,15 +32,23 @@ h2 {
 }
 
 h3 {
-  font-size: 1.04rem;
+  font-size: 1.10rem;
   /* font-family: "Roboto Slab", serif; */
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   opacity: 0.8;
 }
 
+
 h3 em {
   font-size: 0.95rem;
+}
+
+h4 {
+  /* font-family: "Roboto Slab", serif; */
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.8;
 }
 
 p {
