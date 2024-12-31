@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap");
-
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap"); */
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
 body {
   /* font-family: "Inter", sans-serif; */
   /* font-family: "Merriweather", serif; */
-  font-family: "Montserrat", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
+  font-family: "Lusitana", serif;
+  font-size: 1.05rem;
 }
 
 .title {
@@ -58,7 +60,7 @@ p {
 }
 
 pre {
-  background-color: #272a36 !important;
+  background-color: #272a36;
   padding: 1rem !important;
   border-radius: 0.5rem !important;
   font-size: 0.85rem !important;
@@ -106,6 +108,13 @@ sup {
 ol {
   list-style-type: decimal;
   padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
 }
 
 img {
@@ -138,4 +147,44 @@ p a {
 p a:hover {
   color: #5BC0BE;
   opacity: 0.8;
+}
+
+ul a {
+  text-decoration: underline;
+}
+
+ul a:hover {
+  color: #5BC0BE;
+  opacity: 0.8;
+}
+
+#TableOfContents {
+  padding: 10px;
+  padding-left: 20px;
+  border-left: 0.15rem solid #6E6D80 !important;
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
+}
+
+#TableOfContents ol, #TableOfContents ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#TableOfContents ol ol, #TableOfContents ul ul {
+  margin-left: 30px; /* Increase indent for nested lists */
+}
+
+#TableOfContents li {
+  opacity: 1; /* Set full opacity for list items */
+}
+
+
+#TableOfContents a:hover {
+  text-decoration: underline;
+}
+
+details:not([open]) > summary {
+  margin-bottom: 1rem;
 }

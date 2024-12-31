@@ -16,6 +16,11 @@ googleAnalytics = "G-PCNGEYW1TG"
         [markup.goldmark.extensions.passthrough.delimiters]
           block = [['\[', '\]'], ['$$', '$$']]
           inline = [['\(', '\)'], ['$', '$']]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 1
+    ordered = true
+    endLevel = 4
 
 [markup.goldmark.renderer] 
 unsafe = true

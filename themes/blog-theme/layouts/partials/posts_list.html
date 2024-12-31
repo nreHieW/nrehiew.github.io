@@ -1,7 +1,7 @@
 <div>
     <h1 class="text-3xl font-semibold border-b-2 py-3 title">Writing</h1>
 
-    <ul>
+    <ul style="list-style-type: none; padding: 0%;">
         {{ range ( where .Site.RegularPages "Type" "blog" ) }}
         <li class="py-2">
             <a class="flex flex-col hover:opacity-75 hover:underline" href="{{ .Permalink }}">
