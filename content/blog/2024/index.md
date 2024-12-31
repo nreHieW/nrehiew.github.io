@@ -8,7 +8,7 @@ subtitle = "A 2024 Review"
 {{% toc %}}
 
 <div style="text-align: right">
-    <p style = "font-style: italic; font-size: 14px;">
+    <p style = "font-style: italic; font-size: 14px;text-align: right">
         In the face of disruptive technologies, moats created by closed source are temporary.
         <br> 
         Even OpenAI’s closed source approach can’t prevent others from catching up. 
@@ -19,7 +19,7 @@ subtitle = "A 2024 Review"
         <br>
         That’s our moat.
   </p>
-  <p style = "font-style: italic; font-size: 15px;">
+  <p style = "font-style: italic; font-size: 15px; text-align: right">
     -
   Liang Wenfeng, CEO of DeepSeek
   </p>
