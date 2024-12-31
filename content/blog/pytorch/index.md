@@ -3,6 +3,7 @@ title = 'Taking PyTorch for Granted'
 date = 2024-07-04T09:51:47+08:00
 [params]
 subtitle = "Understanding PyTorch without the abstractions"
+toc=false
 +++
 
 # Taking PyTorch For Granted 
