@@ -128,21 +128,16 @@ img {
 }
 
 p em {
-  display: inline-block;
+  font-style: italic;
+}
+
+blockquote {
+  display: block;
   border-left: 0.22rem solid #e11d47 !important;
-  margin: 0 0 1rem;
+  margin: 1rem 0;
   padding-left: 1rem; /* Padding to apply space between the border and the text */
   box-sizing: border-box; /* Ensure the padding and border are included in the element's width and height */
   opacity: 0.6;
-}
-
-p em::before {
-  content: "";
-  display: block;
-  height: 100%;
-  left: 0;
-  width: 0.25rem;
-  background-color: #e11d47;
 }
 
 p a {
