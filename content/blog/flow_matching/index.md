@@ -33,8 +33,8 @@ Now, consider an intermediate step, say step 3 of 5. First, let's determine the 
 For simplicity, we normalize the interpolation to the range $[0, 1]$. With $t=3/5$, our current position $x_t = (1-t)x_0 + t x_1 = (1-3/5) * (1,1) + (3/5) * (6,6) = (4,4)$.
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <div style="text-align: center;">
-    <video width="600" autoplay muted loop>
+  <div style="text-align: center; width: 100%; max-width: 600px;">
+    <video style="width: 100%; height: auto; max-width: 100%;" autoplay muted loop>
       <source src="assets/FlowMatching.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
