@@ -18,7 +18,7 @@ We sample one point from each distribution, resulting in the points $(1, 1)$ (so
 
 **How do we move from the source to the target?**
 
-There are infinitely many paths we can take but the simplest approach is simply move in a straight line. We can use the vector difference between source and target $(6,6) - (1,1) = (5,5)$ which represents the total "direction" and "magnitude" of movement required.
+There are infinitely many paths we can take but the simplest approach is to move in a straight line. We can use the vector difference between source and target $(6,6) - (1,1) = (5,5)$ which represents the total "direction" and "magnitude" of movement required.
 
 If we want to move from $(1,1)$ to $(6,6)$ in a single step, we move directly by $(5,5)$. But suppose we want to take multiple iterative steps instead. If we want to take 5 total steps, we can decompose our direction of movement $(5,5) = 5 * (1,1)$, where we travel in the direction of $(1,1)$ five times. For five steps, the trajectory looks like this:
 $$
@@ -28,7 +28,7 @@ Notice that since this is a straight-line, **at each step, the direction of move
 
 **Understanding Intermediate Steps**
 
-Now, consider an intermediate step, say step 3 of 5. We must first determine our current location. Since the motion is along a straight line and the source and target points are known, we can calculate the position by interpolating between source and target.
+Now, consider an intermediate step, say step 3 of 5. First, let's determine our current location. Since the motion is along a straight line and the source and target points are known, we can calculate the position by interpolating between source and target.
 
 For simplicity, we normalize the interpolation to the range $[0, 1]$. With $t=3/5$, our current position $x_t = (1-t)x_0 + t x_1 = (1-3/5) * (1,1) + (3/5) * (6,6) = (4,4)$.
 
