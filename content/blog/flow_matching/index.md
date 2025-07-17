@@ -1,6 +1,6 @@
 +++
 title = 'Flow Matching in 5 Minutes'
-date = 2025-07-15
+date = 2025-07-17
 [params]
 subtitle = "Busy person's intro to Flow Matching"
 math = true
