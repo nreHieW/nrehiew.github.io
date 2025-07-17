@@ -28,7 +28,7 @@ Notice that since this is a straight-line, **at each step, the direction of move
 
 **Understanding Intermediate Steps**
 
-Now, consider an intermediate step, say step 3 of 5. First, let's determine our current location. Since the motion is along a straight line and the source and target points are known, we can calculate the position by interpolating between source and target.
+Now, consider an intermediate step, say step 3 of 5. First, let's determine the current location. Since the motion is along a straight line and the source and target points are known, we can calculate the position by interpolating between source and target.
 
 For simplicity, we normalize the interpolation to the range $[0, 1]$. With $t=3/5$, our current position $x_t = (1-t)x_0 + t x_1 = (1-3/5) * (1,1) + (3/5) * (6,6) = (4,4)$.
 
@@ -50,7 +50,7 @@ This is the key idea and what we are trying to learn. At each time step, we prov
 ## Vector Fields
 Recall that our goal is to learn how to go from the source distribution $p_\text{source}$ to the target distribution $p_\text{target}$. Specifically for every point in the space, we want to learn a direction and magnitude of movement to follow at every timestep. That is, given the current timestep and position, the model should predict the direction and magnitude of where to move next. Since we want to learn this direction for every single point in space, this can be modelled as a vector field for each timestep.
 
-However, during training, we often don't have $p_\text{target}$ available and instead only have data points sampled from $p_\text{target}$. We also don't have access to the ground truth vector field. The solution is to work with individual pairs of points (1 from source and 1 from target) - just like our example of moving from $(1,1)$ to $(6,6)$. This raises two questions. First, how does training on these individual trajectories help us learn a transformation that works for the entire distribution? Second, would't trajectories that intersect create conflicting directions of movements at the intersection points?
+However, during training, we often don't have $p_\text{target}$ available and instead only have data points sampled from $p_\text{target}$. We also don't have access to the ground truth vector field. The solution is to work with individual pairs of points (1 from source and 1 from target) - just like our example of moving from $(1,1)$ to $(6,6)$. This raises two questions. First, how does training on these individual trajectories help us learn a transformation that works for the entire distribution? Second, wouldn't trajectories that intersect create conflicting directions of movements at the intersection points?
 
 It turns out that even though we train on individual trajectories, the model learns a consistent vector field that can transform any point from the source distribution to the target distribution. Instead of memorizing specific paths, it learns to approximate an "average" field that works for the entire distribution rather than memorizing specific paths between individual points.<sup>[1](#footnote1)</sup>
 
@@ -61,6 +61,7 @@ This is basically all there is to flow matching! I've provided the code below wh
 t = torch.rand(1) # sample a single (normalized) timestep between [0, 1)
 intermediate_t = (1-t) * source + (t * target) # current position at timestep t 
 direction = target - source # this is the direction we always have to move 
+
 # we give the model the timestep information so it knows where between source and target we are at 
 prediction = model(intermediate_t, t) 
 loss = ((direction - pred) **2).mean() # standard regression 
@@ -82,8 +83,8 @@ source = torch.randn(1) # or any other source distribution
 current_position = source
 for step in range(NUM_STEPS):
   t = (step + 1) / NUM_STEPS  # normalize
-	prediction = model(current_position, t) # predict the direction to move
-	current_position = current_position + (1 / NUM_STEPS) * prediction # move based on the step size 
+  prediction = model(current_position, t) # predict the direction to move
+  current_position = current_position + (1 / NUM_STEPS) * prediction # move based on the step size 
 current_position # the target point 
 ```
 
