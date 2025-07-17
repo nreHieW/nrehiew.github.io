@@ -80,7 +80,8 @@ To sample from $p_{\text{target}}$, we start from a source point and iteratively
 ```python
 source = torch.randn(1) # or any other source distribution
 current_position = source
-for t in range(NUM_STEPS):
+for step in range(NUM_STEPS):
+  t = (step + 1) / NUM_STEPS  # normalize
 	prediction = model(current_position, t) # predict the direction to move
 	current_position = current_position + (1 / NUM_STEPS) * prediction # move based on the step size 
 current_position # the target point 
