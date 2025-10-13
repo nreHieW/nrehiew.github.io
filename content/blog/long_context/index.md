@@ -172,7 +172,7 @@ PSRBench thus has the same flaws as many other benchmarks - the model is require
 In my opinion, a good approach to designing a benchmark is to think of a real-world task that requires long-context ability and then try to isolate the setting as much as possible. One example is in Software Engineering when an agent has to read through a large codebase and make edits to multiple files all within the same agent trajectory. In this section, I introduce LongCodeEdit, a benchmark that evaluates models on their ability to identify and fix bugs when provided with large amounts of code.
 
 <div style="margin: 0 auto; text-align: center;">
-  <img src="images/longcodeedit.png" alt="longcodeedit" />
+  <img src="images/LongCodeEdit.png" alt="longcodeedit" />
   <div style="margin-top: -15px; font-size: 14px">LongCodeEdit Scores</div>
 </div>
 <br>
@@ -240,7 +240,7 @@ Similarly, the task itself is also much harder. A useful intuition for evaluatin
 LongCodeEdit-Hard is a version of LongCodeEdit that does not provide the model with the test cases, replacing them with even more functions. This closely reflects the setting of many code generation benchmarks (including BigCodeBench) where the model has no information about the test cases or requirements beyond the docstring and the provided problem specification.
 
 <div style="margin: 0 auto; text-align: center;">
-  <img src="images/longcodeedit_notests.png" alt="longcodeedit_hard" />
+  <img src="images/LongCodeEdit_notests.png" alt="longcodeedit_hard" />
   <div style="margin-top: -15px; font-size: 14px">LongCodeEdit - Hard Scores</div>
 </div>
 <br>
@@ -250,7 +250,7 @@ We notice that LongCodeEdit-Hard is significantly harder, with models scoring 60
 Interestingly, we notice some changes in the relative performance of models in this setting. The plot below normalizes the code editing ability of the model and simply checks if the model correctly identifies the problematic function.
 
 <div style="margin: 0 auto; text-align: center;">
-  <img src="images/longcodeedit_notests_detection.png" alt="longcodeedit_hard_detection" />
+  <img src="images/LongCodeEdit_notests_detection.png" alt="longcodeedit_hard_detection" />
   <div style="margin-top: -15px; font-size: 14px">LongCodeEdit - Hard Detection Scores</div>
 </div>
 <br>
