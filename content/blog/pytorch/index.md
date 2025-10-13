@@ -6,9 +6,6 @@ subtitle = "Understanding PyTorch without the abstractions"
 toc=false
 +++
 
-# Taking PyTorch For Granted 
-###  *Lessons from implementing PyTorch without the abstractions of Python*
-
 A while back I challenged myself to implement [micrograd](https://github.com/karpathy/micrograd) in Rust using only the standard library. Along the way, I thought that it would be a fun to attempt to implement a fully functioning Tensor library on top of micrograd. I thought that my familarity with PyTorch will make this easier but having to do so without the higher-level abstractions of Python turned out much harder than expected. 
 
 In this post, I hope to share some of my learnings throughout this process which forced me to think deeply about how PyTorch actually works under the hood. You might be wondering why understanding the mechanics of PyTorch is important in the first place. I claim that not understanding these abstractions or simply taking them at face value can introduce a whole host of bugs to your code, at best it might be poorly optimised and at worst your computational graph is broken and your model can never learn. 

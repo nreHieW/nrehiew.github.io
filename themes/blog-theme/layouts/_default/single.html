@@ -1,4 +1,20 @@
 {{ define "main" }}
 
-  {{ .Content }}
+  <div class="post-layout">
+    {{ if .TableOfContents }}
+    <aside id="toc-sidebar" class="toc-sidebar" data-title="{{ .Title }}"{{ with .Params.subtitle }} data-subtitle="{{ . }}"{{ end }}>
+      {{/* Render only body TOC by removing first two levels if they are page title/subtitle */}}
+      {{ .TableOfContents }}
+    </aside>
+    {{ end }}
+    <article id="post-content">
+      <header class="post-header">
+        <h1 id="post-title" class="title">{{ .Title }}</h1>
+        {{ with .Params.subtitle }}
+          <h3><em>{{ . }}</em></h3>
+        {{ end }}
+      </header>
+      {{ .Content }}
+    </article>
+  </div>
 {{ end }}

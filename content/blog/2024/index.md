@@ -4,8 +4,6 @@ date = 2024-12-30
 [params]
 subtitle = "A 2024 Review"
 +++
-# The State of Generative Models
-{{% toc %}}
 
 <div style="text-align: right">
     <p style = "font-style: italic; font-size: 14px;text-align: right">

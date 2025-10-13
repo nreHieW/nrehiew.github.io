@@ -25,3 +25,7 @@ googleAnalytics = "G-PCNGEYW1TG"
 [markup.goldmark.renderer] 
 unsafe = true
 
+[markup.highlight]
+  style = 'github'
+  noClasses = false
+  lineNos = false

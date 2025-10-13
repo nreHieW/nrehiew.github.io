@@ -5,8 +5,6 @@ date = 2025-07-17
 subtitle = "Busy person's intro to Flow Matching"
 math = true
 +++
-# Flow Matching in 5 Minutes
-###  *Busy person's intro to Flow Matching*
 
 In this post, I will try to build an intuitive understanding to the Flow Matching, a framework used to train many state-of-the-art generative image models. 
 
