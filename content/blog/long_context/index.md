@@ -2,7 +2,7 @@
 title = 'Evaluating Long Context (Reasoning) Ability'
 date = 2025-10-11
 [params]
-subtitle = "What do 1M and 500K context windows have in common? They are both 64K."
+subtitle = "What do 1M and 500K context windows have in common? They are both actually 64K."
 math = true
 +++
 
