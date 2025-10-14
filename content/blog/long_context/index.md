@@ -2,7 +2,7 @@
 title = 'Evaluating Long Context (Reasoning) Ability'
 date = 2025-10-11
 [params]
-subtitle = "The existing benchmarks are too easy."
+subtitle = "What do 1M and 500K context windows have in common? They are both 64K."
 math = true
 +++
 
@@ -15,7 +15,7 @@ math = true
 
 Reasoning models and long agent trajectories are eating up valuable space in the context window. In response, models are being released with ever-increasing context windows; the latest, Grok 4 Fast, has a 2 million token window. 
 
-Unfortunately, as anyone who has worked with these models knows, the number of tokens a model can accept as input is not the same as the number of tokens it can reason over. Performance often degrades well before reaching the advertised context window length. 
+Unfortunately, as anyone who has worked with these models knows, the number of tokens a model can accept as input is not the same as the number of tokens it can reason over. Performance often degrades well before reaching the advertised context window length. This seems at odds with the perfect context window claims from the many model providers.
 
 <div class="context-figure">
   <figcaption>Effective context length</figcaption>
@@ -48,7 +48,7 @@ Unfortunately, as anyone who has worked with these models knows, the number of t
 </div>
 <br>
 
-In this post, I discuss the current state of long context evaluation, outline what makes a good long context benchmark, and introduce a new benchmark—LongCodeEdit.
+In this post, I will show why this discrepency exists by looking at existing long context benchmarks. I will then discuss what makes a good long context benchmark and introduce a new benchmark—LongCodeEdit.
 
 
 ## Existing Long Context Evaluation
