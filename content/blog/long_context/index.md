@@ -1,6 +1,6 @@
 +++
 title = 'Evaluating Long Context (Reasoning) Ability'
-date = 2025-10-11
+date = 2025-10-16
 [params]
 subtitle = "What do 1M and 500K context windows have in common? They are both actually 64K."
 math = true
@@ -134,6 +134,8 @@ A good example of a challenging benchmark is [GSM-Infinite](https://arxiv.org/ab
 > - Utilizes naturally interconnected content, not artificially generated or padded context
 > - No junk context: every part of the context is required for the task
 > - Tests a real skill critical for coding agents: keeping track of the state of edited files
+
+The problem with reducing a long context task to retrieval is that it fails to account for another failure mode beyond the inability to access the context window - where models often exhibit reduced reasoning ability as context length increases, even when they can access all relevant information. This is often known as "Context Rot" and some examples of this degradation are increased likelihood of hallucination, instability, or "doom loops" in long agentic interactions. Therefore, effective benchmarks need to go beyond assessing the ability to retrieve the right span and instead also evaluate the ability to maintain reasoning quality even at long context lengths.
 
 In the following sections, I will attempt to come up with a new long context benchmark. In doing so, I hope to show my process behind benchmark design and compare what I come up with against the criteria outlined above.
 
