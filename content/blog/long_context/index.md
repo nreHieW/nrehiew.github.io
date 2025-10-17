@@ -278,16 +278,8 @@ As a final note, the purpose of benchmarks is to expose model failure modes in s
 ### Code
 Both [PSRBench](https://app.primeintellect.ai/dashboard/environments/nrehiew/paraphrased-sentence-repeater) and [LongCodeEdit](https://app.primeintellect.ai/dashboard/environments/nrehiew/long-code-edit) have been uploaded to the Prime Intellect Environments Hub. The evaluations were done with 20 samples per token length bin with a maximum context length of 128K input tokens. If you have the necessary compute, you could run RL on these environments too.
 
-Please reach out if you have any questions or suggestions! If you found this work useful, please cite:
+Please reach out if you have any questions or suggestions! 
 
-```bibtex
-@misc{nrehiew2025longcontext,
-  title={Evaluating Long Context (Reasoning) Ability},
-  author={Wei Hern Lim},
-  year={2025},
-  howpublished = {\url{http://nrehiew.github.io/blog/long_context}},
-}
-```
 _Thanks [Prime Intellect](https://primeintellect.ai/) for sponsoring the API costs for this project!_
 
 <style>
