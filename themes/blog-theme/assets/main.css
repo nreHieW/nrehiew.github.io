@@ -187,6 +187,149 @@ img {
   margin-bottom: 1.5rem;
 }
 
+.post-figure {
+  margin: 1.5rem auto 1.1rem;
+}
+
+.post-figure__link {
+  display: block;
+}
+
+.post-figure img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border: 1px solid rgba(40, 40, 40, 0.08);
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.045);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.post-figure figcaption {
+  margin-top: 0.45rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: rgba(40, 40, 40, 0.72);
+  text-align: center;
+}
+
+.post-figure--wide {
+  width: min(980px, calc(100vw - 2rem));
+  max-width: none;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.post-table {
+  margin: 1.35rem 0 1rem;
+}
+
+.post-table__wrap {
+  overflow-x: auto;
+  border: 1px solid rgba(40, 40, 40, 0.08);
+  border-radius: 14px;
+  background: #fffdfc;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.045);
+}
+
+.post-table table {
+  width: 100%;
+  min-width: 680px;
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.87rem;
+  line-height: 1.3;
+  font-variant-numeric: tabular-nums;
+}
+
+.post-table th,
+.post-table td {
+  padding: 0.48rem 0.8rem;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(40, 40, 40, 0.08);
+}
+
+.post-table thead th {
+  background: #f7f3ef;
+  color: rgba(40, 40, 40, 0.72);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.post-table thead th:not(:first-child),
+.post-table tbody td:not(:first-child) {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.post-table tbody tr:not(.post-table__section):hover {
+  background: rgba(40, 40, 40, 0.025);
+}
+
+.post-table tbody:last-of-type tr:last-child td {
+  border-bottom: none;
+}
+
+.post-table__section th {
+  padding-top: 0.42rem;
+  padding-bottom: 0.42rem;
+  background: #fff7f2;
+  color: #202020;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+.post-table figcaption {
+  margin-top: 0.45rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: rgba(40, 40, 40, 0.72);
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .post-figure {
+    margin: 1.2rem auto 0.95rem;
+  }
+
+  .post-figure figcaption {
+    font-size: 0.74rem;
+  }
+
+  .post-figure--wide {
+    width: 100%;
+    left: auto;
+    transform: none;
+  }
+
+  .post-table {
+    margin: 1.2rem 0 0.9rem;
+  }
+
+  .post-table th,
+  .post-table td {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.83rem;
+  }
+
+  .post-table thead th {
+    font-size: 0.66rem;
+  }
+
+  .post-table figcaption {
+    font-size: 0.74rem;
+  }
+}
+
 p em {
   font-style: italic;
 }
