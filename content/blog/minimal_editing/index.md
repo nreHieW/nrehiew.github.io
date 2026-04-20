@@ -1,6 +1,6 @@
 +++
 title = 'Coding Models Are Doing Too Much'
-date = 2026-04-15
+date = 2026-04-20
 [params]
 subtitle = "Don't rewrite what isn't broken"
 math = true
@@ -25,7 +25,7 @@ In this post, I will investigate this problem: whether existing LLMs have a tend
 
 Over-editing refers to a model modifying code beyond what is strictly necessary to fix the problem at hand. To be precise: a model is over-editing if its output is functionally correct but structurally diverges from the original code more than the minimal fix requires. 
 
-The example in Figure 1 illustrates this well. The bug is a single off-by-one error in a `range()` call — `range(len(x) - 1)` should be `range(len(x))`. The correct fix is a single line. GPT-5.4 (with high reasoning effort) responds by rewriting the entire function: it adds explicit `None` checks, introduces `np.asarray` conversions with `dtype=float`, adds finite-value masking, validates array sizes, changes the `curve_fit` call signature, and replaces the plotting logic entirely. While the output passes the tests and is functionally correct, the diff is enormous, and none of those additions were asked for or even necessary.
+The example in Figure 1 illustrates this well. The bug is a single off-by-one error in a `range()` call (`range(len(x) - 1)` should be `range(len(x))`) and the correct fix is a single line. GPT-5.4 (with high reasoning effort) responds by rewriting the entire function: it adds explicit `None` checks, introduces `np.asarray` conversions with `dtype=float`, adds finite-value masking, validates array sizes, changes the `curve_fit` call signature, and replaces the plotting logic entirely. While the output passes the tests and is functionally correct, the diff is enormous, and none of those additions were asked for or even necessary.
 
 It helps to think about this in terms of the kind of work being done. Software engineering broadly splits into two modes: green-field (building something new from scratch) and brown-field (working within an existing codebase). Specifically in brown-field, the existing code has been understood by the team and has been deliberately written the way it was. The model's job is to fix the issue and nothing else. 
 
@@ -33,7 +33,7 @@ A common piece of advice for working with AI coding tools is to simply write mor
 
 
 ## Measuring Over-Editing
-To study over-editing, we first need a dataset of code edits where the "ground truth" edit is well-defined with some degree of "minimality". Rather than using another LLM to introduce bugs (which is what most existing benchmarks do), we programmatically corrupt 400 problems from [BigCodeBench](https://arxiv.org/abs/2406.15877) which gives us more fine-grained control — things like flipping a comparison operator (`<` → `<=`), swapping `+` for `-`, or changing boolean values (`True` → `False`).[^corruptions] Each corrupted sample remains syntactically valid and verified to break the corresponding test cases. This ensures that the ground truth edit is exactly the reversal of the corruption and nothing more, thus making this edit minimal by construction. We can then evaluate not just whether a model fixes the bug, but *how much else it changed* in the process.
+To study over-editing, we first need a dataset of code edits where the "ground truth" edit is well-defined with some degree of "minimality". Rather than using another LLM to introduce bugs (which is what most existing benchmarks do), we programmatically corrupt 400 problems from [BigCodeBench](https://arxiv.org/abs/2406.15877) which gives us more fine-grained control: things like flipping a comparison operator (`<` → `<=`), swapping `+` for `-`, or changing boolean values (`True` → `False`).[^corruptions] Each corrupted sample remains syntactically valid and verified to break the corresponding test cases. This ensures that the ground truth edit is exactly the reversal of the corruption and nothing more, thus making this edit minimal by construction. We can then evaluate not just whether a model fixes the bug, but *how much else it changed* in the process.
 
 ### Metrics 
 Most coding benchmarks evaluate models on correctness using some variant of Pass@1. However, Pass@1 is necessary but not sufficient. A model can score perfectly on Pass@1 while completely rewriting every function it touches. For this experiment, we need metrics that capture *how much* the model changed beyond what was required.
@@ -117,7 +117,7 @@ Yes, even frontier ones.
   <figcaption>Table 1: Performance comparison of reasoning and non-reasoning models. Models that appear in both are hybrid models. Best scores for each metric are bolded.</figcaption>
 </figure>
 
-Among the latest frontier models, GPT-5.4 over-edits the most. It has a Levenshtein of 0.39 in reasoning mode and 0.33 in non-reasoning, with Added Cognitive Complexity of 2.31 and 1.56 respectively. Despite this, its Pass@1 is only 0.723 and 0.770, making it one of the weakest correctness performers too. Claude Opus 4.6 achieves the highest Pass@1 of any model evaluated (0.912 reasoning, 0.900 non-reasoning) while also producing the smallest diffs — Levenshtein of 0.06 and 0.08, Added Cognitive Complexity of 0.20 and 0.31. Gemini 3.1 Pro Preview sits in similar territory, with GLM 5 arguably the most conservative model among the open weight ones.
+Among the latest frontier models, GPT-5.4 over-edits the most. It has a Levenshtein of 0.39 in reasoning mode and 0.33 in non-reasoning, with Added Cognitive Complexity of 2.31 and 1.56 respectively. Despite this, its Pass@1 is only 0.723 and 0.770, making it one of the weakest correctness performers too. Claude Opus 4.6 achieves the highest Pass@1 of any model evaluated (0.912 reasoning, 0.900 non-reasoning) while also producing the smallest diffs with Levenshtein of 0.06 and 0.08, Added Cognitive Complexity of 0.20 and 0.31. Gemini 3.1 Pro Preview sits in similar territory, with GLM 5 arguably the most conservative model among the open weight ones.
 
 ## Does Prompting Help?
 Many papers that claim to uncover a new LLM failure mode do not first test whether the model can do the task when asked directly. A behavior that looks impossible in one setup may be easy under an explicit prompt, so I investigate the impact of adding *"IMPORTANT: Try to preserve the original code and the logic of the original code as much as possible"* to the prompt.
@@ -160,7 +160,7 @@ I first create a synthetic dataset of corrupted problems from [DeepCoder](https:
 
 We evaluate 4 different methods:
 - **SFT**: Supervised fine-tuning directly on the programmatically generated dataset.
-- **rSFT**: Rejection-sampled SFT — train on the completions with the 3 lowest Levenshtein Distances for each sample from the self-distillation dataset.
+- **rSFT**: Rejection-sampled SFT where we train on the completions with the 3 lowest Levenshtein Distances for each sample from the self-distillation dataset.
 - **DPO**: Preference optimization between the completions with the highest and lowest Levenshtein Distances for each sample from the self-distillation dataset.
 - **RL**: Reinforcement learning with a reward combining functional correctness and Levenshtein-based edit minimality. The reward structure is a weighted sum of the Levenshtein Distance and a penalty for failing to pass the test cases:
  
@@ -229,7 +229,7 @@ On the first attempt, SFT is almost suspiciously good as the resultant model see
  
 SFT collapses entirely out-of-domain. Pass@1 drops to 0.458 as the model has learned to make specific minimal changes regardless of whether they fix anything. rSFT and DPO are both better but the overall improvement is slight compared to the 8-shot baseline. This indicates that training on traces distilled from the base model itself is sufficient to induce some degree of generalization. RL is the only method that generalizes cleanly, improving on all three metrics over both baselines. The fact that the RL model has larger improvements on Levenshtein Distance and Added Cognitive Complexity than on Pass@1 is further evidence that it is not just memorizing corruption reversals but has actually generalized to minimal editing.
 
-Given the SFT model’s inability to even fix bugs, we also wanted to look at Catastrophic Forgetting — specifically, whether fine-tuning for minimal editing degrades general coding ability. We evaluate all fine-tuned models on LiveCodeBench v6 and compare against the original pretrained model. Ideally, performance should remain similar after training.
+Given the SFT model’s inability to even fix bugs, we also wanted to look at Catastrophic Forgetting. Specifically, whether fine-tuning for minimal editing degrades general coding ability. We evaluate all fine-tuned models on LiveCodeBench v6 and compare against the original pretrained model. Ideally, performance should remain similar after training.
 
 SFT shows a 43% performance degradation, which aligns with our earlier finding that it can no longer identify and fix basic bugs. The rSFT and DPO models experience slight degradation, indicating that even though they were trained on samples generated by the original model, the nature of the task still results in some degree of Catastrophic Forgetting. The RL model, however, does not experience any degradation. Combined with the fact that it also performs the task best, RL is able to teach the model a new behavior without degrading previously acquired abilities. This aligns with broader work showing that [SFT memorizes while RL generalizes](https://arxiv.org/abs/2501.17161).
 
@@ -265,7 +265,7 @@ Given that this task is less about teaching the model new knowledge and more abo
       <figcaption>Table 4: Performance comparison of various LoRA ranks.</figcaption>
 </figure>
 
-The results support the hypothesis. LoRA at rank 64 nearly matches full RL on Levenshtein Distance and beats it on Added Cognitive Complexity. LiveCodeBench dips slightly at low ranks but rank 64 is effectively flat, and full RL remains best overall. There is a clean monotonic trend as rank increases — both Levenshtein and Added CC fall steadily from rank 1 to rank 64. The rate of improvement is not uniform though, as the biggest gains happen early. Rank 1 to 16 accounts for most of the Levenshtein reduction (0.166 → 0.087), while rank 16 to 64 closes the remaining gap more gradually (0.087 → 0.051). Ranks 1 and 8 also trade correctness for edit minimality which could be explained by a lack of sufficient capacity to learn both reward functions and instead bias towards the higher-reward edit minimality.
+The results support the hypothesis. LoRA at rank 64 nearly matches full RL on Levenshtein Distance and beats it on Added Cognitive Complexity. LiveCodeBench dips slightly at low ranks but rank 64 is effectively flat, and full RL remains best overall. There is a clean monotonic trend as rank increases where both Levenshtein and Added CC fall steadily from rank 1 to rank 64. The rate of improvement is not uniform though, as the biggest gains happen early. Rank 1 to 16 accounts for most of the Levenshtein reduction (0.166 → 0.087), while rank 16 to 64 closes the remaining gap more gradually (0.087 → 0.051). Ranks 1 and 8 also trade correctness for edit minimality which could be explained by a lack of sufficient capacity to learn both reward functions and instead bias towards the higher-reward edit minimality.
 
 This is consistent with the idea that a small number of additional parameters is enough to shift the model's editing behavior and more capacity beyond a certain point yields diminishing returns. For style-level behavioral changes where the underlying capability is already present, LoRA is likely sufficient and considerably cheaper to run.
 
