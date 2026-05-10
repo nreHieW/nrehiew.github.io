@@ -196,15 +196,16 @@ img {
 }
 
 .post-figure img {
-  width: 100%;
+  max-width: 100%;
+  width: auto;
   height: auto;
-  margin: 0;
+  margin: 0 auto;
   border: 1px solid rgba(40, 40, 40, 0.08);
   border-radius: 14px;
   background: #ffffff;
   box-shadow: 0 8px 26px rgba(0, 0, 0, 0.045);
   image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  image-rendering: smooth;
 }
 
 .post-figure figcaption {
@@ -216,11 +217,12 @@ img {
 }
 
 .post-figure--wide {
-  width: min(980px, calc(100vw - 2rem));
+  --post-figure-wide: min(980px, calc(100vw - 2rem));
+  width: var(--post-figure-wide);
   max-width: none;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  /* Center a figure wider than the text column without transform (clearer bitmap scaling in some browsers). */
+  margin-left: calc(50% - var(--post-figure-wide) / 2);
+  margin-right: calc(50% - var(--post-figure-wide) / 2);
 }
 
 .post-table {
@@ -307,8 +309,8 @@ img {
 
   .post-figure--wide {
     width: 100%;
-    left: auto;
-    transform: none;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .post-table {

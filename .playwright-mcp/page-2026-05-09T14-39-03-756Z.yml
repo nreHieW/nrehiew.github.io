@@ -1,0 +1,196 @@
+- generic [ref=e2]:
+  - generic:
+    - generic:
+      - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+        - generic [ref=e4]: To view keyboard shortcuts, press question mark
+        - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+          - /url: /i/keyboard_shortcuts
+      - generic [ref=e10]:
+        - banner [ref=e11]:
+          - generic [ref=e31]:
+            - generic [ref=e32]:
+              - heading "X" [level=1] [ref=e546] [cursor=pointer]:
+                - link "X" [ref=e547]:
+                  - /url: /home
+                  - img [ref=e37]
+              - navigation "Primary" [ref=e548]:
+                - link "Home" [ref=e549] [cursor=pointer]:
+                  - /url: /home
+                  - img [ref=e45]
+                - link "Search and explore" [ref=e550] [cursor=pointer]:
+                  - /url: /explore
+                  - img [ref=e51]
+                - link "Notifications (1 unread notification)" [ref=e551] [cursor=pointer]:
+                  - /url: /notifications
+                  - generic [ref=e56]:
+                    - img [ref=e57]
+                    - generic "1 unread items" [ref=e552]:
+                      - generic [ref=e61]: "1"
+                - link "Follow" [ref=e553] [cursor=pointer]:
+                  - /url: /i/connect_people
+                  - img [ref=e65]
+                - link "Direct Messages" [ref=e554] [cursor=pointer]:
+                  - /url: /i/chat
+                  - img [ref=e71]
+                - link "Grok" [ref=e555] [cursor=pointer]:
+                  - /url: /i/grok
+                  - img [ref=e77]
+                - link "Articles" [ref=e556] [cursor=pointer]:
+                  - /url: /compose/articles
+                  - img [ref=e83]
+                - link "Profile" [ref=e557] [cursor=pointer]:
+                  - /url: /nrehiew_
+                  - img [ref=e90]
+                - button "More menu items" [ref=e558] [cursor=pointer]:
+                  - img [ref=e96]
+              - link "Post" [ref=e559] [cursor=pointer]:
+                - /url: /compose/post
+                - img [ref=e102]
+            - button "Account menu" [ref=e560] [cursor=pointer]:
+              - generic [ref=e116]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic "wh":
+                        - img "wh"
+        - main [ref=e12]:
+          - generic [ref=e15]:
+            - region "Articles" [ref=e561]:
+              - generic [ref=e121]:
+                - generic [ref=e126]:
+                  - heading "Articles" [level=2] [ref=e562]
+                  - button "create" [ref=e563] [cursor=pointer]:
+                    - img [ref=e133]
+                - navigation [ref=e137]:
+                  - generic [ref=e138]:
+                    - generic:
+                      - button "Previous" [disabled]:
+                        - generic:
+                          - img
+                    - tablist [ref=e140]:
+                      - tab "Drafts" [selected] [ref=e564] [cursor=pointer]:
+                        - generic [ref=e144]: Drafts
+                      - tab "Published" [ref=e565] [cursor=pointer]:
+                        - generic [ref=e149]: Published
+                    - generic:
+                      - button "Next" [disabled]:
+                        - generic:
+                          - img
+                - generic [ref=e151]:
+                  - link "Draft Last saved just now More SFT, RL, and On-Policy Distillation Through a Distributional Lens" [ref=e644] [cursor=pointer]:
+                    - /url: /compose/articles/edit/2053122221389053953
+                    - generic [ref=e188]:
+                      - generic [ref=e189]:
+                        - generic [ref=e190]:
+                          - generic [ref=e191]: Draft
+                          - generic [ref=e192]: ·
+                          - generic [ref=e193]: Last saved just now
+                        - button "More" [ref=e567]:
+                          - img [ref=e199]
+                      - generic [ref=e204]: SFT, RL, and On-Policy Distillation Through a Distributional Lens
+                  - link "Draft Last saved 20 minutes ago More (Needs title) +++ title = 'SFT, RL, and On-Policy Distillation Through a Distributional Lens' date = 2026-05-09 [params] subtitle = \"On forgetting, generalization, and what connects RL to on-policy distillation\"" [ref=e568] [cursor=pointer]:
+                    - /url: /compose/articles/edit/2052990404325519360
+                    - generic [ref=e155]:
+                      - generic [ref=e156]:
+                        - generic [ref=e157]:
+                          - generic [ref=e158]: Draft
+                          - generic [ref=e159]: ·
+                          - generic [ref=e160]:
+                            - text: Last saved
+                            - generic "20 minutes ago" [ref=e569]:
+                              - time [ref=e162]: 20 minutes ago
+                        - button "More" [ref=e570]:
+                          - img [ref=e168]
+                      - generic [ref=e173]: (Needs title)
+                      - generic [ref=e174]: +++ title = 'SFT, RL, and On-Policy Distillation Through a Distributional Lens' date = 2026-05-09 [params] subtitle = "On forgetting, generalization, and what connects RL to on-policy distillation"
+            - region "Draft Last saved 6 seconds ago" [ref=e645]:
+              - generic [ref=e207]:
+                - generic [ref=e212]:
+                  - heading "Draft Last saved 6 seconds ago" [level=2] [ref=e646]:
+                    - generic [ref=e647]:
+                      - generic [ref=e648]: Draft
+                      - generic [ref=e649]: ·
+                      - generic [ref=e650]:
+                        - text: Last saved
+                        - generic "6 seconds ago" [ref=e651]:
+                          - time [ref=e652]: 6 seconds ago
+                  - generic [ref=e222]:
+                    - link "Preview" [ref=e574] [cursor=pointer]:
+                      - /url: /compose/articles/edit/2053122221389053953/preview
+                      - generic [ref=e226]: Preview
+                    - button "Publish" [disabled] [ref=e575]:
+                      - generic [ref=e231]: Publish
+                    - link "Focus mode" [ref=e576] [cursor=pointer]:
+                      - /url: /compose/articles/edit/2053122221389053953/focus
+                      - img [ref=e235]
+                    - button "More" [ref=e577] [cursor=pointer]:
+                      - img [ref=e243]
+                - generic [ref=e246]:
+                  - generic [ref=e249]:
+                    - generic [ref=e251]:
+                      - generic [ref=e252]:
+                        - generic [ref=e253]:
+                          - button [ref=e254] [cursor=pointer]:
+                            - img [ref=e256]
+                          - button [ref=e259] [cursor=pointer]:
+                            - img [ref=e261]
+                          - button [ref=e264] [cursor=pointer]:
+                            - img [ref=e266]
+                        - button "Body" [ref=e578] [cursor=pointer]:
+                          - generic [ref=e270]: Body
+                          - button [ref=e271]:
+                            - img [ref=e273]
+                        - button [ref=e278] [cursor=pointer]:
+                          - img [ref=e280]
+                        - generic [ref=e283]:
+                          - button [ref=e285] [cursor=pointer]:
+                            - img [ref=e287]
+                          - button [ref=e290] [cursor=pointer]:
+                            - img [ref=e292]
+                        - button [ref=e297] [cursor=pointer]:
+                          - img [ref=e299]
+                        - button "Add emoji" [ref=e579] [cursor=pointer]:
+                          - img [ref=e305]
+                        - generic [ref=e309]:
+                          - button "Add Media" [ref=e580] [cursor=pointer]:
+                            - generic [ref=e653]:
+                              - generic [ref=e654]: Insert
+                              - img [ref=e655]
+                          - button "Keyboard shortcuts" [ref=e586] [cursor=pointer]:
+                            - img [ref=e658]
+                      - generic [ref=e661]: 0 words
+                    - generic [ref=e326]:
+                      - generic [ref=e595]:
+                        - button "Add photos or video" [ref=e596] [cursor=pointer]:
+                          - img [ref=e598]
+                        - button "Choose File" [ref=e605]
+                        - button "Remove photo" [ref=e606] [cursor=pointer]:
+                          - img [ref=e608]
+                      - textbox "Add a title" [ref=e611]: SFT, RL, and On-Policy Distillation Through a Distributional Lens
+                      - generic [ref=e357]:
+                        - link "wh Verified account" [ref=e612] [cursor=pointer]:
+                          - /url: /nrehiew_
+                          - generic [ref=e359]:
+                            - generic [ref=e371]: wh
+                            - img "Verified account" [ref=e613]
+                        - link "@nrehiew_" [ref=e614] [cursor=pointer]:
+                          - /url: /nrehiew_
+                          - generic [ref=e380]: "@nrehiew_"
+                      - textbox [active] [ref=e394]
+                  - generic [ref=e399]:
+                    - separator [ref=e400]
+                    - listitem [ref=e401] [cursor=pointer]:
+                      - generic [ref=e402]:
+                        - link [ref=e412]:
+                          - /url: /nrehiew_
+                        - generic [ref=e415]:
+                          - generic [ref=e418]:
+                            - link "wh Verified account" [ref=e615]:
+                              - /url: /nrehiew_
+                              - generic [ref=e421]:
+                                - generic [ref=e423]: wh
+                                - img "Verified account" [ref=e616]
+                            - link "@nrehiew_" [ref=e617]:
+                              - /url: /nrehiew_
+                              - generic [ref=e433]: "@nrehiew_"
+                          - generic [ref=e434]: eng primarily, ml mostly, research previously
